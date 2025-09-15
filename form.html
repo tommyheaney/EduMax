@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edumax Admin · Edit News Item</title>
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="custom.css">
+  <style>
+    .topbar { background: #6c757d; color: #fff; }
+    .brand-logo { width:56px; height:56px; background:#adb5bd; border-radius:.25rem; display:inline-block; margin-right:.75rem; }
+    .admin-avatar { width:40px; height:40px; background:#adb5bd; border-radius:.25rem; display:inline-block; }
+    .primary-nav .nav-link { border:1px solid #ced4da; border-right:0; color:#212529; }
+    .primary-nav .nav-item:last-child .nav-link { border-right:1px solid #ced4da; border-top-right-radius:.375rem; border-bottom-right-radius:.375rem; }
+    .primary-nav .nav-item:first-child .nav-link { border-top-left-radius:.375rem; border-bottom-left-radius:.375rem; }
+    .primary-nav .nav-link.active { background:#e9f2ff; font-weight:600; }
+    @media (max-width: 575.98px){ .topbar .flex-sm-nowrap { flex-wrap: wrap !important; gap:.5rem; } }
+  </style>
+</head>
+<body class="bg-light">
+  <header class="topbar py-2">
+    <div class="container d-flex flex-sm-nowrap justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <strong class="fs-4">Edumax</strong>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="small text-end">
+          <div>Welcome back, Admin</div>
+        </div>
+        <span class="admin-avatar" aria-hidden="true"></span>
+        <a class="btn btn-sm btn-outline-light" href="#" role="button">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Primary" class="bg-white border-bottom">
+    <div class="container py-2 d-flex align-items-center justify-content-between">
+      <ul class="nav primary-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Announcements</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Members</a></li>
+      </ul>
+      <a class="small text-decoration-none" href="#" aria-label="View Mobile Version">View Mobile Version</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="h4 mb-3">Manage News</h1>
+  </div>
+
+  <main id="main" class="container mb-4" aria-labelledby="page-title">
+    <h2 id="page-title" class="visually-hidden">Edit a news article</h2>
+
+    <p id="form-help" class="text-muted">
+      Update the fields below, then choose <strong>Save changes</strong> to submit. All fields marked
+      <span class="required-asterisk" aria-hidden="true">*</span>
+      are required.
+    </p>
+
+    <form class="needs-validation" method="post" action="reflect.php" aria-describedby="form-help">
+      <input type="hidden" name="itemID" id="itemID" value="1024">
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+
+              <div class="mb-3">
+                <label for="title" class="form-label">Title <span class="required-asterisk" aria-hidden="true">*</span></label>
+                <input type="text" class="form-control" id="title" name="title" required minlength="3" maxlength="120" aria-describedby="titleHelp" value="New term welcome">
+                <div id="titleHelp" class="form-text">Enter a clear, concise headline (max 120 characters).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="summary" class="form-label">Summary <span class="required-asterisk" aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="summary" name="summary" rows="2" required aria-describedby="summaryHelp">A short message to welcome new students and share useful links.</textarea>
+                <div id="summaryHelp" class="form-text">One–two sentence teaser shown on listing pages.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="body" class="form-label">Body <span class="required-asterisk" aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="body" name="body" rows="8" required aria-describedby="bodyHelp">We’re excited to welcome everyone to the new term. Remember to check your timetable and visit the library orientation page for resources.</textarea>
+                <div id="bodyHelp" class="form-text">Full article content. Plain text is fine.</div>
+              </div>
+
+              <fieldset class="mb-3">
+                <legend class="fs-6 mb-2">Media (optional)</legend>
+                <div class="row g-3">
+                  <div class="col-12 col-md-8">
+                    <label for="imageUrl" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="imageUrl" name="imageUrl" placeholder="https://example.edu/images/welcome.jpg" value="https://picsum.photos/seed/campus/1200/630" aria-describedby="imgHelp">
+                    <div id="imgHelp" class="form-text">Use a fully qualified URL (https://…). Leave blank for no image.</div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <label for="imageAlt" class="form-label">Image alt text</label>
+                    <input type="text" class="form-control" id="imageAlt" name="imageAlt" maxlength="140" placeholder="Students walking across campus" value="Students walking across campus">
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <label for="pubDate" class="form-label">Publication date <span class="required-asterisk" aria-hidden="true">*</span></label>
+                  <input type="date" class="form-control" id="pubDate" name="pubDate" required value="2025-05-01">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="status" class="form-label">Status <span class="required-asterisk" aria-hidden="true">*</span></label>
+                  <select class="form-select" id="status" name="status" required>
+                    <option value="">Select…</option>
+                    <option value="draft">Draft</option>
+                    <option value="scheduled">Scheduled</option>
+                    <option value="published" selected>Published</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-1">
+                <div class="col-12 col-sm-6">
+                  <label for="category" class="form-label">Category</label>
+                  <select class="form-select" id="category" name="category" aria-describedby="catHelp">
+                    <option>General</option>
+                    <option selected>Announcements</option>
+                    <option>Events</option>
+                    <option>Student Life</option>
+                  </select>
+                  <div id="catHelp" class="form-text">Used for grouping on the site.</div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="author" class="form-label">Author</label>
+                  <input type="text" class="form-control" id="author" name="author" value="Admin Team">
+                </div>
+              </div>
+
+              <div class="row g-3 mt-1">
+                <div class="col-12 col-md-6">
+                  <label for="tags" class="form-label">Tags (comma-separated)</label>
+                  <input type="text" class="form-control" id="tags" name="tags" value="welcome, term, resources">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="slug" class="form-label">Slug</label>
+                  <input type="text" class="form-control" id="slug" name="slug" pattern="^[a-z0-9-]+$" aria-describedby="slugHelp" placeholder="new-term-welcome" value="new-term-welcome">
+                  <div id="slugHelp" class="form-text">Lowercase letters, numbers and hyphens only.</div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="col-12 col-lg-4">
+          <div class="card shadow-sm mb-3">
+            <div class="card-body">
+              <h3 class="h6">Tips</h3>
+              <ul class="small m-0 ps-3">
+                <li>Use a descriptive title and alt text.</li>
+                <li>Check contrast and keyboard access.</li>
+                <li>Ensure the date and status are correct before publishing.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="h6">Meta</h3>
+              <dl class="row small mb-0">
+                <dt class="col-5">Item ID</dt>
+                <dd class="col-7"><code>1024</code></dd>
+                <dt class="col-5">Last edited</dt>
+                <dd class="col-7">2025-05-01 09:52</dd>
+              </dl>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </form>
+  </main>
+
+  <footer class="border-top bg-white">
+    <div class="container py-3 small text-muted">
+      &copy; 2025 Edumax Admin · TM252 Example
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

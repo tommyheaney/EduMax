@@ -1,0 +1,18 @@
+/* TM252 Q3 – minimal custom styles (kept small to encourage validator pass) */
+:root{
+  --brand-radius: 1rem;
+}
+
+.required-asterisk { color: #dc3545; }
+
+.card { border-radius: var(--brand-radius); }
+.btn { border-radius: calc(var(--brand-radius) - .25rem); }
+
+/* Ensure focus outlines are visible and robust */
+:focus {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Prefer readable line lengths in the main article body textarea */
+#body { line-height: 1.5; }
